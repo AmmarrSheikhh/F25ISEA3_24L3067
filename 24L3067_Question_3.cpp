@@ -5,14 +5,14 @@ char board[3][3];
 
 void initializeBoard() {
     for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < 3; j++)           //initializes the empty board
             board[i][j] = ' ';
 }
 
 void displayBoard() {
     cout << "\n";
     for (int i = 0; i < 3; i++) {
-        cout << " " << board[i][0] << " | " << board[i][1] << " | " << board[i][2] << endl;
+        cout << " " << board[i][0] << " | " << board[i][1] << " | " << board[i][2] << endl;       //prints the board 
         if (i < 2)
             cout << "---|---|---"<<endl;
     }
@@ -20,11 +20,11 @@ void displayBoard() {
 }
 
 bool checkWin(char p) {
-    for (int i = 0; i < 3; i++)
-        if ((board[i][0] == p && board[i][1] == p && board[i][2] == p) || (board[0][i] == p && board[1][i] == p && board[2][i] == p))
+    for (int i = 0; i < 3; i++){
+        if ((board[i][0] == p && board[i][1] == p && board[i][2] == p) || (board[0][i] == p && board[1][i] == p && board[2][i] == p))      //checks winning condition of straight lines
             return true;
-
-    if ((board[0][0] == p && board[1][1] == p && board[2][2] == p) || (board[0][2] == p && board[1][1] == p && board[2][0] == p))
+    }
+    if ((board[0][0] == p && board[1][1] == p && board[2][2] == p) || (board[0][2] == p && board[1][1] == p && board[2][0] == p))       //the diagonal positions
         return true;
 
     return false;
@@ -32,7 +32,7 @@ bool checkWin(char p) {
 
 bool boardFull() {
     for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < 3; j++)             //checks if the board is fully filled or not 
             if (board[i][j] == ' ')
                 return false;
     return true;
@@ -84,3 +84,4 @@ int main() {
 
     return 0;
 }
+
