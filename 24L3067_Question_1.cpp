@@ -6,11 +6,11 @@ bool isPalindrome(string str) {
     int start = 0;
     int end = 0;
 
-    end = str.length()-1;
+    end = str.length()-1;            //Setting end equal to the length of the string
     
 
     while (start < end) {
-        if (str[start] != str[end])
+        if (str[start] != str[end])    //compares the start and end of the string and moves forward and backward and repeat
             return false;
         start++;
         end--;
@@ -26,7 +26,7 @@ int main() {
     cout << "Press ESC to exit anytime."<<endl<<endl;
 
     while (true) {
-        cout << "Enter a string: ";
+        cout << "Enter a string: ";                       //takes input of the string to check in this loop and tests the palidrome, until ESC is pressed
         cin >> input;
 
         if (isPalindrome(input))
@@ -44,3 +44,4 @@ int main() {
 
     return 0;
 }
+
