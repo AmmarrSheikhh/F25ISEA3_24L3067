@@ -10,19 +10,19 @@ int main() {
 
     ifstream file("words.txt");
     if (!file) {
-        cout << "Error: Could not open words.txt"<<endl;
+        cout << "Error: Could not open words.txt"<<endl;         //opens the file named "words.txt" using filehandling and if this file isnt present, gives an error 
         return 0;
     }
 
-    while (file >> words[count]) count++;
+    while (file >> words[count]) count++;          //copies the words from the file into the string (a word is considered a word until a space or linebreak is faced)
     file.close();
 
     srand(time(0));
-    string word = words[rand() % count];
-    string display(word.length(), '_');
-    int mistakes = 7;
+    string word = words[rand() % count];          //selects a random word from the file using rand function
+    string display(word.length(), '_'); 
+    int mistakes = 7;                           //lives
     bool found;
-    bool used[26] = { false };
+    bool used[26] = { false };            //creates an array of alphabets that'll be used to check whether an alphabet entered has already been used or not
 
     cout << "---- Hangman Game ----"<<endl;
 
@@ -33,7 +33,7 @@ int main() {
         cout << "Used letters: ";
         for (int i = 0; i < 26; i++) {
             if (used[i])
-                cout << (char)('a' + i) << " ";
+                cout << (char)('a' + i) << " ";             //using ASCII codes, prints the words used.
         }
         cout << endl;
 
@@ -42,11 +42,11 @@ int main() {
         cin >> guess;
 
         if (guess >= 'A' && guess <= 'Z') 
-            guess = guess - 'A' + 'a';
+            guess = guess - 'A' + 'a';                 //same thing as before, compares the ASCII codes and checks if the inputed alphabet, is indeed an alphabet or not
 
       
         if (guess < 'a' || guess > 'z') {
-            cout << "Invalid input! Enter alphabets only."<<endl;
+            cout << "Invalid input! Enter alphabets only."<<endl;    
             continue;
         }
 
@@ -81,3 +81,4 @@ int main() {
 
     return 0;
 }
+
