@@ -3,20 +3,24 @@
 using namespace std;
 
 bool isPalindrome(string str) {
-    int start = 0;
-    int end = 0;
+    for (int i = 0; str[i]; i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] = str[i] + 32; 
+        }
+    }
 
-    end = str.length()-1;            //Setting end equal to the length of the string
-    
+    int start = 0;
+    int end = str.length() - 1;        //end will be 1 less than the actual amount as we start the start from 0
 
     while (start < end) {
-        if (str[start] != str[end])    //compares the start and end of the string and moves forward and backward and repeat
+        if (str[start] != str[end])
             return false;
         start++;
         end--;
     }
     return true;
 }
+
 
 int main() {
     char ch;
@@ -44,4 +48,5 @@ int main() {
 
     return 0;
 }
+
 
